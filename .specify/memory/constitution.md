@@ -1,55 +1,38 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 1.0.0 → 1.1.0
+- List of modified principles:
+    - Principle III: Added debouncing requirement.
+    - Principle IV: Added semantic HTML/accessibility requirement.
+    - Principle V: Clarified API key trade-off.
+- Added sections: None (modified existing).
+- Templates requiring updates: None.
+- Follow-up TODOs: None.
+-->
+
+# Weather Dashboard Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Accuracy & Integrity
+Accurate real-time weather retrieval is the primary function. Data displayed MUST match the response from the OpenWeather API exactly; manual alterations or "fudging" of data are strictly prohibited. The OpenWeather API is the single source of truth.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Simplicity & Usability
+The UI MUST be clean, minimal, and immediately understandable by general users. Essential data (temperature, humidity, weather description, icon, wind speed) MUST be clearly visible. Weather units MUST be metric (°C).
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Reliability & Resilience
+The application MUST demonstrate predictable behavior and reliable functionality. It MUST NOT crash on invalid inputs or network errors. Error states (e.g., invalid city, network issues) MUST be handled gracefully with user-friendly messages. Network requests MUST be debounced (e.g., waiting 500ms after typing stops) or throttled to prevent hitting API rate limits. The application MUST automatically save and load the last searched city using `localStorage` to preserve user context.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Maintainability & Standards
+Code MUST be maintainable, modular, and beginner-friendly. Use consistent naming, avoid unused variables, and strictly separate concerns (API logic, DOM updates, storage handling). HTML MUST be semantic (e.g., using `<button>` for actions, not `<div>`) to ensure basic accessibility. Inline scripts inside HTML are prohibited.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
-
-### [PRINCIPLE_6_NAME]
-
-
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Technological Constraints
+Development is strictly limited to vanilla HTML, CSS, and JavaScript; frameworks are prohibited. The Fetch API MUST be used for all network requests. The API key MUST be stored in a separate JavaScript variable (not hardcoded inside the fetch URL string). It is acknowledged that client-side exposure of the key is an accepted trade-off for this architecture. The file structure is limited to three main files: `index.html`, `style.css`, and `script.js`. The UI MUST be responsive and functional on devices as small as 360px width. Icons MUST use OpenWeather-provided icon URLs.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices and preferences.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+All Pull Requests and code reviews MUST verify compliance with these principles. Validation is performed via manual verification against the Success Criteria. Any deviation (e.g., adding a framework, hardcoding API keys in URLs) requires an immediate block until resolved. Complexity must be justified against the "Simplicity & Usability" and "Maintainability & Standards" principles. Amendments to this constitution require documentation, approval, and a clear migration plan for any non-compliant code.
+
+**Version**: 1.1.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
