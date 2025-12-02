@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: OpenWeatherMap API (Subset)
+  version: 2.5.0
+  description: External API contract used by Weather Dashboard
+paths:
+  /weather:
+    get:
+      summary: Get Current Weather
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: City name
+        - name: appid
+          in: query
+          required: true
+          schema:
+            type: string
+          description: API Key
+        - name: units
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [metric]
+          description: Units of measurement
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  main:
+                    type: object
+                    properties:
+                      temp:
+                        type: number
+                      humidity:
+                        type: number
+                  weather:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        description:
+                          type: string
+                        icon:
+                          type: string
+                  wind:
+                    type: object
+                    properties:
+                      speed:
+                        type: number
+                  dt:
+                    type: integer
+        '404':
+          description: City not found
+  /forecast:
+    get:
+      summary: Get 5 Day Forecast
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: appid
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: units
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [metric]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  list:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dt:
+                          type: integer
+                        dt_txt:
+                          type: string
+                        main:
+                          type: object
+                          properties:
+                            temp:
+                              type: number
+                            humidity:
+                              type: number
+                        weather:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              icon:
+                                type: string
