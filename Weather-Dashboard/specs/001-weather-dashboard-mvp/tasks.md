@@ -16,12 +16,12 @@ description: "Task list for Weather Dashboard MVP"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan in Weather-Dashboard/
-- [ ] T002 Create index.html with semantic HTML5 boilerplate
-- [ ] T003 Create style.css with CSS reset and base variables
-- [ ] T004 Create script.js with strict mode enabled
-- [ ] T005 [P] Create placeholder for API Key configuration in script.js (using "YOUR_KEY_HERE")
-- [ ] T006 Human Approval: Review and approve Phase 1 completion.
+- [x] T001 Create project structure per implementation plan in Weather-Dashboard/
+- [x] T002 Create index.html with semantic HTML5 boilerplate
+- [x] T003 Create style.css with CSS reset and base variables
+- [x] T004 Create script.js with strict mode enabled
+- [x] T005 [P] Create placeholder for API Key configuration in script.js (using "YOUR_KEY_HERE")
+- [x] T006 Human Approval: Review and approve Phase 1 completion.
 
 ---
 
@@ -31,11 +31,11 @@ description: "Task list for Weather Dashboard MVP"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Implement `fetchWeather(city)` stub in script.js with API URL construction
-- [ ] T008 Implement `debounce(func, wait)` utility in script.js per research.md
-- [ ] T009 [P] Define CSS Grid/Flexbox layout structure in style.css (header, main, footer)
-- [ ] T010 Implement error display container in index.html and rendering logic in script.js
-- [ ] T011 Human Approval: Review and approve Phase 2 completion.
+- [x] T007 Implement `fetchWeather(city)` stub in script.js with API URL construction
+- [x] T008 Implement `debounce(func, wait)` utility in script.js per research.md
+- [x] T009 [P] Define CSS Grid/Flexbox layout structure in style.css (header, main, footer)
+- [x] T010 Implement error display container in index.html and rendering logic in script.js
+- [x] T011 Human Approval: Review and approve Phase 2 completion.
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -49,13 +49,13 @@ description: "Task list for Weather Dashboard MVP"
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Add Search Input and Button to index.html
-- [ ] T013 [US1] Implement `displayCurrentWeather(data)` function in script.js using `textContent`
-- [ ] T014 [US1] Connect Search Button click event to `fetchWeather` and `displayCurrentWeather` in script.js
-- [ ] T015 [US1] Add CSS styles for Current Weather card in style.css
-- [ ] T016 [US1] Implement API error handling (404/401) to show user-friendly messages in script.js
-- [ ] T017 [US1] Add responsive media queries for Current Weather card (mobile view) in style.css
-- [ ] T018 Human Approval: Review and approve User Story 1 completion.
+- [x] T012 [US1] Add Search Input and Button to index.html
+- [x] T013 [US1] Implement `displayCurrentWeather(data)` function in script.js using `textContent`
+- [x] T014 [US1] Connect Search Button click event to `fetchWeather` and `displayCurrentWeather` in script.js
+- [x] T015 [US1] Add CSS styles for Current Weather card in style.css
+- [x] T016 [US1] Implement API error handling (404/401) to show user-friendly messages in script.js
+- [x] T017 [US1] Add responsive media queries for Current Weather card (mobile view) in style.css
+- [x] T018 Human Approval: Review and approve User Story 1 completion.
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -69,11 +69,11 @@ description: "Task list for Weather Dashboard MVP"
 
 ### Implementation for User Story 2
 
-- [ ] T019 [US2] Implement `saveCityToStorage(city)` using `localStorage` in script.js
-- [ ] T020 [US2] Implement `getCityFromStorage()` using `localStorage` in script.js
-- [ ] T021 [US2] Add initialization logic to load last city on page load in script.js
-- [ ] T022 [US2] Update search handler to call `saveCityToStorage` on successful fetch in script.js
-- [ ] T023 Human Approval: Review and approve User Story 2 completion.
+- [x] T019 [US2] Implement `saveCityToStorage(city)` using `localStorage` in script.js
+- [x] T020 [US2] Implement `getCityFromStorage()` using `localStorage` in script.js
+- [x] T021 [US2] Add initialization logic to load last city on page load in script.js
+- [x] T022 [US2] Update search handler to call `saveCityToStorage` on successful fetch in script.js
+- [x] T023 Human Approval: Review and approve User Story 2 completion.
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -87,13 +87,13 @@ description: "Task list for Weather Dashboard MVP"
 
 ### Implementation for User Story 3
 
-- [ ] T024 [US3] Add Forecast Container section to index.html
-- [ ] T025 [US3] Implement `fetchForecast(city)` function in script.js calling the forecast endpoint
-- [ ] T026 [US3] Implement `displayForecast(data)` function using `document.createElement` in script.js
-- [ ] T027 [US3] Add CSS styles for Forecast Grid/List in style.css
-- [ ] T028 [US3] Update search handler to trigger `fetchForecast` alongside current weather in script.js
-- [ ] T029 [US3] Add responsive media queries for Forecast Grid (stacking on mobile) in style.css
-- [ ] T030 Human Approval: Review and approve User Story 3 completion.
+- [x] T024 [US3] Add Forecast Container section to index.html
+- [x] T025 [US3] Implement `fetchForecast(city)` function in script.js calling the forecast endpoint
+- [x] T026 [US3] Implement `displayForecast(data)` function using `document.createElement` in script.js
+- [x] T027 [US3] Add CSS styles for Forecast Grid/List in style.css
+- [x] T028 [US3] Update search handler to trigger `fetchForecast` alongside current weather in script.js
+- [x] T029 [US3] Add responsive media queries for Forecast Grid (stacking on mobile) in style.css
+- [x] T030 Human Approval: Review and approve User Story 3 completion.
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -103,11 +103,11 @@ description: "Task list for Weather Dashboard MVP"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T031 Run manual accessibility check (Lighthouse) and fix semantic HTML issues
-- [ ] T032 Verify API Key placeholder is restored before commit (Security check)
-- [ ] T033 Final cross-browser testing (Chrome, Firefox, Edge)
-- [ ] T034 Verify debouncing works on rapid interactions
-- [ ] T035 Human Approval: Review and approve overall project completion.
+- [x] T031 Run manual accessibility check (Lighthouse) and fix semantic HTML issues
+- [x] T032 Verify API Key placeholder is restored before commit (Security check)
+- [x] T033 Final cross-browser testing (Chrome, Firefox, Edge)
+- [x] T034 Verify debouncing works on rapid interactions
+- [x] T035 Human Approval: Review and approve overall project completion.
 
 ---
 
