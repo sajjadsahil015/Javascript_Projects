@@ -1,7 +1,7 @@
 'use strict';
 
 // Configuration
-const API_KEY = '7efcd0e0755a461a932103949250212'; // Replace with your OpenWeather API Key
+const API_KEY = 'YOUR_API_KEY_HERE'; // Replace with your OpenWeather API Key
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 const LOCAL_STORAGE_CITY_KEY = 'weather_dashboard_last_city';
 
