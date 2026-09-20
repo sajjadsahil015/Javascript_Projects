@@ -1,158 +1,569 @@
-/* Components styles */
+/* ==========================================================================
+   Components Stylesheet (Buttons, Form, List, Chart, Toasts, Filters)
+   ========================================================================== */
 
-.inc-exp-container {
-    background-color: #fff;
-    box-shadow: var(--box-shadow);
-    padding: 20px;
+/* 1. BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    line-height: 1;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-update {
+    background: #0284c7;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.btn-update:hover {
+    background: #0369a1;
+}
+
+.btn-outline {
+    background: var(--surface);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+.btn-outline:hover {
+    background: var(--bg-body);
+    border-color: #cbd5e1;
+}
+
+.btn-danger-outline {
+    color: var(--danger);
+}
+
+.btn-danger-outline:hover {
+    background: var(--danger-light);
+    border-color: #fecdd3;
+}
+
+.btn-cancel {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.btn-cancel:hover {
+    background: var(--border-color);
+    color: var(--danger);
+}
+
+/* 2. TYPE TOGGLE SWITCHER (Income vs Expense) */
+.type-toggle-group {
     display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
+    background: var(--bg-body);
+    padding: 4px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    gap: 6px;
+    border: 1px solid var(--border-color);
 }
 
-.inc-exp-container > div {
+.type-btn {
     flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.type-btn[data-type="expense"].active {
+    background: #ffffff;
+    color: var(--danger);
+    box-shadow: var(--shadow-sm);
+}
+
+.type-btn[data-type="income"].active {
+    background: #ffffff;
+    color: var(--success);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 3. FORM CONTROLS */
+.form-control {
+    margin-bottom: 16px;
+}
+
+.form-control label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.1fr;
+    gap: 12px;
+}
+
+.input-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.input-icon-wrap input,
+.input-icon-wrap select {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-family: inherit;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+}
+
+.input-icon-wrap input:focus,
+.input-icon-wrap select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-help-tip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    background: var(--bg-body);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+}
+
+.form-help-tip i {
+    color: var(--warning);
+}
+
+/* 4. FILTERS & SEARCH TOOLBAR */
+.filters-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    background: var(--bg-body);
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.search-box input:focus {
+    background: var(--surface);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.dropdowns-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.custom-select-wrap select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 500;
+    background: var(--bg-body);
+    color: var(--text-main);
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.custom-select-wrap select:focus {
+    border-color: var(--primary);
+    background: var(--surface);
+}
+
+/* 5. CHART CONTAINER */
+.chart-container {
+    position: relative;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-chart-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: var(--text-muted);
 }
 
-.inc-exp-container > div:first-of-type {
-    border-right: 1px solid #dedede;
+.empty-chart-icon {
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
 }
 
-.money {
-    font-size: 20px;
-    letter-spacing: 1px;
-    margin: 5px 0;
+.empty-chart-state p {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
 }
 
-.money.plus {
-    color: var(--success-color);
+.empty-chart-state span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
 }
 
-.money.minus {
-    color: var(--danger-color);
+/* 6. TRANSACTION LIST */
+.list-wrapper {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Custom Scrollbar */
+.list-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-body);
+    border-radius: 4px;
+}
+
+.list-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.list-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
 .list {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 40px;
-}
-
-.list li {
-    background-color: #fff;
-    box-shadow: var(--box-shadow);
-    color: #333;
+    list-style: none;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transaction-item {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     position: relative;
-    padding: 10px;
-    margin: 10px 0;
 }
 
-.list li.plus {
-    border-right: 5px solid var(--success-color);
+.transaction-item:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
 }
 
-.list li.minus {
-    border-right: 5px solid var(--danger-color);
+.transaction-item.plus {
+    border-left: 4px solid var(--success);
+}
+
+.transaction-item.minus {
+    border-left: 4px solid var(--danger);
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.cat-icon-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
 .transaction-info {
     display: flex;
     flex-direction: column;
+    gap: 3px;
 }
 
-.transaction-info small {
-    color: #777;
-    font-size: 0.8em;
+.transaction-text {
+    font-size: 0.92rem;
+    color: var(--text-main);
+    font-weight: 600;
 }
 
-/* Actions Container (Edit/Delete) */
+.transaction-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.category-pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    background: var(--bg-body);
+}
+
+.date-text {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.item-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.amount {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.amount.plus {
+    color: var(--success);
+}
+
+.amount.minus {
+    color: var(--danger);
+}
+
+/* Action Buttons (Edit & Delete) */
 .actions {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
     display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: var(--bg-body);
+    color: var(--text-muted);
+}
+
+.edit-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.delete-btn:hover {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--bg-body);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-color);
+}
+
+.empty-icon {
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.empty-subtext {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* 7. TOAST NOTIFICATIONS */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1e293b;
+    color: #ffffff;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    font-size: 0.88rem;
+    font-weight: 500;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-16px) scale(0.95);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: auto;
+    border-left: 4px solid var(--primary);
+    max-width: 350px;
 }
 
-.list li:hover .actions {
+.toast.show {
     opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
-.delete-btn, .edit-btn {
-    cursor: pointer;
-    border: 0;
-    color: #fff;
-    font-size: 14px;
-    padding: 5px 8px;
-    margin-right: 2px;
+.toast-success {
+    border-left-color: var(--success);
 }
 
-.delete-btn {
-    background-color: #e74c3c;
+.toast-success i {
+    color: var(--success);
 }
 
-.edit-btn {
-    background-color: #3498db;
+.toast-error {
+    border-left-color: var(--danger);
 }
 
-.btn {
-    cursor: pointer;
-    background-color: var(--primary-color);
-    box-shadow: var(--box-shadow);
-    color: #fff;
-    border: 0;
-    display: block;
-    font-size: 16px;
-    margin: 10px 0 30px;
-    padding: 10px;
-    width: 100%;
+.toast-error i {
+    color: var(--danger);
 }
 
-.btn:focus, .delete-btn:focus, .edit-btn:focus {
-    outline: 0;
+.toast-info {
+    border-left-color: var(--info);
 }
 
-/* Filter & Sort */
-.filter-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    background: #fff;
-    padding: 10px;
-    box-shadow: var(--box-shadow);
-    border-radius: 4px;
+.toast-info i {
+    color: var(--info);
 }
 
-.filter-container label {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.filter-container select {
-    padding: 5px;
-    border: 1px solid #dedede;
-    border-radius: 2px;
-}
-
-.form-control label {
-    display: inline-block;
-    margin: 10px 0;
-}
-
-.form-control input {
-    border: 1px solid #dedede;
-    border-radius: 2px;
-    display: block;
-    font-size: 16px;
-    padding: 10px;
-    width: 100%;
-}
-
-.form-control input:focus {
-    outline: 0;
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .dropdowns-group {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .transaction-item {
+        padding: 12px;
+    }
+    .item-left {
+        gap: 10px;
+    }
+    .cat-icon-badge {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+    }
+    .amount {
+        font-size: 0.95rem;
+    }
 }

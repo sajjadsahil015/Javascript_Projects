@@ -4,12 +4,15 @@
 Responsive web application for tracking daily expenses, income, and visualizing budget status. Designed to run completely in the browser using LocalStorage for data persistence.
 
 ## Core Features
-- Transaction management (Add, Edit, Delete expenses & income)
-- Real-time balance updates (Total Balance, Income, Expense)
-- Filter and Sort transactions (by date, category)
+- Transaction management (Add, Edit, Delete expenses & income with smooth UX)
+- Real-time balance updates (Total Balance, Income, Expense, and Savings Rate %)
+- Multi-Currency Support (USD, PKR, EUR, GBP, INR, AED)
+- Filter and Sort transactions (Live search, by category, type, and date/amount sorting)
 - Data persistence using Browser LocalStorage
-- Interactive Charts (Visualizing spending habits)
-- Responsive Design (Mobile-first approach)
+- Interactive Charts (Chart.js Doughnut chart visualizing spending habits by category)
+- Data Portability (Export to CSV, Load Demo Data, Reset All)
+- Non-blocking custom toast notifications
+- Fully Responsive Design (Mobile-first, modern dashboard layout)
 
 ## Tech Stack
 - **Structure**: HTML5 (Semantic)
